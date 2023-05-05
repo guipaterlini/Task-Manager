@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TaskContainer from "./components/TaskContainer";
 import TaskItem from "./components/TaskItem";
 
@@ -27,6 +27,12 @@ function App() {
 
     setTarefas(novaLista);
   }
+
+  useEffect(() => {
+    if (tarefas.length >= 10) {
+      alert("Limite de tarefas foi atingido");
+    }
+  }, [tarefas]);
 
   return (
     <main className="container">
